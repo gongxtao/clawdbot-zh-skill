@@ -59,26 +59,25 @@ clawdbot stock "苹果股票价格"
 
 ## 📥 安装方法
 
-### 方法一：直接复制到本地
+### 方法一：一键安装
+
+```bash
+git clone https://github.com/gongxtao/clawdbot-zh-skill.git
+cd clawdbot-zh-skill
+./install.sh
+```
+
+### 方法二：手动安装
 
 ```bash
 # 创建技能目录
 mkdir -p ~/.clawdbot/skills
 
 # 复制技能文件夹
-cp -r express ~/.clawdbot/skills/
-cp -r weather ~/.clawdbot/skills/
-cp -r stock ~/.clawdbot/skills/
+cp -r express weather stock ~/.clawdbot/skills/
 
 # 重启 Clawdbot
 clawdbot gateway restart
-```
-
-### 方法二：从 GitHub 安装
-
-```bash
-# 克隆仓库
-git clone https://github.com/YOUR_USERNAME/chinese-skills.git ~/.clawdbot/skills/chinese-skills
 ```
 
 ## 🛠️ 技能开发
