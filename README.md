@@ -2,49 +2,61 @@
 
 ![Clawdbot](https://img.shields.io/badge/Clawdbot-AI%20Assistant-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Skills](https://img.shields.io/badge/Skills-13-blue?style=for-the-badge)
+![Skills](https://img.shields.io/badge/Skills-19-blue?style=for-the-badge)
 
 中文技能市场 for Clawdbot / OpenClaw / Moltbot，提供常用中文场景技能。
 
-## 📦 技能列表（13个核心技能）
+## 📂 技能分类目录
 
-### 🏠 生活服务（3个）
+```
+chinese-skills/
+├── README.md          # 本文档
+├── install.sh         # 一键安装脚本
+│
+├── 1-工具/            # 🔧 常用工具（5个）
+│   ├── express/       # 📦 快递查询
+│   ├── translate/     # 🌐 翻译
+│   ├── converter/     # 🔄 单位换算
+│   ├── emoji/         # 😀 表情搜索
+│   └── idcard/        # 🆔 身份证查询
+│
+├── 2-生活/            # 🏠 生活服务（3个）
+│   ├── weather/       # 🌤️ 天气查询
+│   ├── lunar/         # 📅 农历转换
+│   └── ipquery/       # 🌐 IP查询
+│
+├── 3-金融/            # 💰 金融理财（4个）
+│   ├── stock/         # 📈 股票查询
+│   ├── currency/      # 💱 汇率查询
+│   ├── crypto/        # ₿ 加密货币
+│   └── fund/          # 📊 基金查询
+│
+├── 4-交通/            # 🚌 出行交通（3个）
+│   ├── map/           # 🗺️ 地图定位
+│   ├── bus/           # 🚌 公交地铁
+│   └── train/         # 🚄 火车票
+│
+├── 5-资讯/            # 📰 新闻资讯（2个）
+│   ├── news/          # 📰 今日新闻
+│   └── hotsearch/     # 🔥 热搜榜单
+│
+└── 6-娱乐/            # 🎵 娱乐休闲（2个）
+    ├── movie/         # 🎬 电影票
+    └── music/         # 🎵 音乐播放
+```
 
-| 技能 | 状态 | 说明 |
-|------|------|------|
-| 🌤️ 天气查询 | ✅ | 3天天气预报、空气质量 |
-| 📦 快递查询 | ✅ | 主流快递自动识别 |
-| 🗺️ 地图定位 | ✅ | 周边搜索、距离计算 |
+---
 
-### 🚌 出行交通（2个）
+## 📦 技能统计（19个）
 
-| 技能 | 状态 | 说明 |
-|------|------|------|
-| 🚌 公交地铁 | ✅ | 线路查询、换乘规划 |
-| 🚄 火车票 | ✅ | 车次查询、余票、票价 |
-
-### 💰 金融理财（3个）
-
-| 技能 | 状态 | 说明 |
-|------|------|------|
-| 📈 股票查询 | ✅ | A股/港股/美股/指数 |
-| 💱 汇率查询 | ✅ | 实时汇率、货币换算 |
-| ₿ 加密货币 | ✅ | BTC/ETH 等主流币种 |
-
-### 📰 新闻资讯（2个）
-
-| 技能 | 状态 | 说明 |
-|------|------|------|
-| 📰 今日新闻 | ✅ | 头条新闻、热点资讯 |
-| 🔥 热搜榜单 | ✅ | 微博/知乎/抖音/B站 |
-
-### 🛠️ 工具效率（3个）
-
-| 技能 | 状态 | 说明 |
-|------|------|------|
-| 🌐 翻译 | ✅ | 中英互译、多语言 |
-| 🔄 单位换算 | ✅ | 长度/重量/温度/货币 |
-| 📅 农历转换 | ✅ | 公历↔农历/节假日/节气 |
+| 分类 | 数量 | 技能列表 |
+|------|------|---------|
+| 🔧 工具 | 5 | 快递、翻译、单位换算、表情、身份证 |
+| 🏠 生活 | 3 | 天气、农历、IP |
+| 💰 金融 | 4 | 股票、汇率、加密货币、基金 |
+| 🚌 交通 | 3 | 地图、公交地铁、火车票 |
+| 📰 资讯 | 2 | 新闻、热搜 |
+| 🎵 娱乐 | 2 | 电影、音乐 |
 
 ---
 
@@ -58,91 +70,84 @@ cd clawdbot-zh-skill
 ./install.sh
 ```
 
-### 方法二：手动安装
+### 方法二：分类安装
 
 ```bash
-# 创建技能目录
-mkdir -p ~/.clawdbot/skills
+# 只安装工具类
+cp -r 1-工具/* ~/.clawdbot/skills/
 
-# 复制所有技能
-cp -r express weather map bus train stock currency crypto news hotsearch translate converter lunar ~/.clawdbot/skills/
+# 只安装金融类
+cp -r 3-金融/* ~/.clawdbot/skills/
 
-# 重启 Clawdbot
-clawdbot gateway restart
+# 只安装交通类
+cp -r 4-交通/* ~/.clawdbot/skills/
 ```
 
 ### 方法三：单技能安装
 
 ```bash
 # 安装单个技能
-cp -r express ~/.clawdbot/skills/
+cp -r 1-工具/express ~/.clawdbot/skills/
+```
+
+### 重启 Clawdbot
+
+```bash
+clawdbot gateway restart
 ```
 
 ---
 
 ## 🛠️ 技能使用
 
-### 生活服务
+### 🔧 常用工具
+
+```bash
+clawdbot agent "查询快递单号 SF1234567890"
+clawdbot agent "翻译 Hello World"
+clawdbot agent "100厘米等于多少米"
+clawdbot agent "开心的表情"
+clawdbot agent "身份证号310101199001011234归属地"
+```
+
+### 🏠 生活服务
+
 ```bash
 clawdbot agent "北京今天天气"
-clawdbot agent "查询快递单号 SF1234567890"
-clawdbot agent "附近的餐厅"
-clawdbot agent "从北京到上海有多远"
+clawdbot agent "今天农历多少"
+clawdbot agent "我的IP"
 ```
 
-### 出行交通
-```bash
-clawdbot agent "北京地铁1号线"
-clawdbot agent "上海公交911路"
-clawdbot agent "北京到上海的高铁"
-clawdbot agent "从望京到国贸怎么坐车"
-```
+### 💰 金融理财
 
-### 金融理财
 ```bash
 clawdbot agent "贵州茅台股价"
 clawdbot agent "1美元等于多少人民币"
 clawdbot agent "比特币价格"
-clawdbot agent "ETH 行情"
+clawdbot agent "易方达蓝筹净值"
 ```
 
-### 新闻资讯
+### 🚌 出行交通
+
+```bash
+clawdbot agent "附近的餐厅"
+clawdbot agent "北京地铁1号线"
+clawdbot agent "北京到上海的高铁"
+```
+
+### 📰 新闻资讯
+
 ```bash
 clawdbot agent "今天的新闻"
-clawdbot agent "科技新闻"
 clawdbot agent "微博热搜"
 clawdbot agent "知乎热榜"
 ```
 
-### 工具效率
+### 🎵 娱乐休闲
+
 ```bash
-clawdbot agent "翻译 Hello World"
-clawdbot agent "100厘米等于多少米"
-clawdbot agent "今天农历多少"
-clawdbot agent "2026年春节是哪天"
-```
-
----
-
-## 📋 技能目录结构
-
-```
-chinese-skills/
-├── express/        # 快递查询
-├── weather/        # 天气查询
-├── map/            # 地图定位 🆕
-├── bus/            # 公交地铁 🆕
-├── train/          # 火车票 🆕
-├── stock/          # 股票查询
-├── currency/       # 汇率查询 🆕
-├── crypto/         # 加密货币 🆕
-├── news/           # 新闻资讯
-├── hotsearch/      # 热搜榜单
-├── translate/      # 翻译
-├── converter/      # 单位换算
-├── lunar/          # 农历转换
-├── install.sh      # 一键安装脚本
-└── README.md       # 完整文档
+clawdbot agent "今天有什么电影"
+clawdbot agent "播放周杰伦的稻香"
 ```
 
 ---
@@ -151,22 +156,36 @@ chinese-skills/
 
 欢迎贡献新技能！
 
-### 待开发技能清单
+### 待开发技能
 
-- [ ] 基金查询（净值/持仓）
-- [ ] 电影票（场次/票价）
-- [ ] 音乐播放（网易云/QQ音乐）
-- [ ] 表情搜索（Emoji 查询）
-- [ ] 身份证查询（归属地/校验）
-- [ ] IP 查询（本机IP/归属地）
-- [ ] 短链接生成
-- [ ] 密码生成器
+- [ ] 酒店预订
+- [ ] 外卖点餐
+- [ ] 二手交易
+- [ ] 租房信息
+- [ ] 天气预警
+- [ ] 股票提醒
+- [ ] 赛事比分
+- [ ] 星座运势
 
 ---
 
 ## 📝 更新日志
 
-### v1.2.0 (2026-02-01) - 新增5个交通金融技能
+### v1.3.0 (2026-02-01) - 新增6个技能，目录重构
+
+**新增技能：**
+- 📊 基金查询（fund）
+- 🎬 电影票查询（movie）
+- 🎵 音乐播放（music）
+- 😀 表情搜索（emoji）
+- 🆔 身份证查询（idcard）
+- 🌐 IP查询（ipquery）
+
+**重大更新：**
+- ✨ 目录结构重构，按功能分类（1-工具、2-生活、3-金融...）
+- 📦 技能总数达到 19 个
+
+### v1.2.0 (2026-02-01) - 新增5个技能
 
 **新增技能：**
 - 🗺️ 地图定位（map）
